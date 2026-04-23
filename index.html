@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Game Bot Creator - Generate and play games instantly based on chat prompts.">
+    <title>Game Bot Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Chat Area -->
+        <aside class="chat-sidebar">
+            <div class="sidebar-header">
+                <h1>Game Bot</h1>
+                <p>Type to generate games</p>
+            </div>
+            
+            <div class="chat-history" id="chat-history">
+                <div class="message bot-message">
+                    Hello! I'm your AI Game Master. Type ANY game you want to play, like "Snake", "Mario", "Racing", "Shooter", or "Pong"! Adjust the Creativity slider to change the rules!
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="e.g. Create Pong...">
+                <button id="send-btn" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Game Area -->
+        <main class="game-area">
+            <header class="game-header">
+                <div class="controls">
+                    <div class="slider-container">
+                        <label for="temperature-slider">Creativity (Temp): <span id="temp-value" class="highlight">0.5</span></label>
+                        <input type="range" id="temperature-slider" min="0" max="1" step="0.1" value="0.5">
+                    </div>
+                    <div class="action-buttons">
+                        <button id="play-btn" class="btn btn-primary">Play Game</button>
+                        <button id="restart-btn" class="btn btn-secondary" disabled>Restart Game</button>
+                    </div>
+                </div>
+                <div class="score-display">
+                    Score: <span id="score-value" class="highlight">0</span>
+                </div>
+            </header>
+
+            <div class="game-canvas-container" id="game-renderer">
+                <div class="empty-state">
+                    <h2>No Game Active</h2>
+                    <p>Request a game in the chat or press 'Play Game' after selecting an option!</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
